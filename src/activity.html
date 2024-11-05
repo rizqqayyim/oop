@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Activity Suggestions</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            background: url('picture3.jpg') no-repeat; /* Replace with your image URL */
+            background-size: 200% 100%; /* Adjusts size for movement effect */
+            animation: moveBackground 10s linear infinite;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Moving background image */
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0; /* Start position */
+            }
+
+            100% {
+                background-position: 100% 0; /* End position */
+            }
+        }
+
+        /* Background overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.4);
+            z-index: -1;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background-color: rgba(68, 24, 29, 0.9);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #44181d, #FF6347);
+        }
+
+        .header img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header button {
+            padding: 8px 16px;
+            background-color: white;
+            color: #FF6347;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .header button:hover {
+            background-color: #ffd7d7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            z-index: 1;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        .weather {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Flex container for aligning activity items in a row */
+        .activity-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            background: rgba(255, 99, 71, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .activity {
+            width: 120px;
+            height: 120px;
+            background: #FF6347;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background: linear-gradient(135deg, #FF6347, #FFA07A);
+        }
+
+        .activity:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.07) rotate(1deg);
+        }
+
+        .activity img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .link-section {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .link-section a {
+            color: #100d0d;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .link-section a:hover {
+            color: #ffc1c1;
+        }
+        .activity-button {
+            background-color: #FF6347;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            border: 2px solid #FF4500;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .activity-button:hover {
+            background-color: #872f21; /* Darker green on hover */
+            transform: translateY(-2px);
+            background-color: #FF4500;
+        }
+        .activity-title {
+            background: linear-gradient(to right, #FF6347, #FFA07A);
+            color: transparent;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <img src="logo2.png" alt="Logo">
+        <div class="header-buttons">
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='activity.html'">Activity</button>
+            <button onclick="window.location.href='equipment.html'">Equipment</button>
+            <button onclick="window.location.href='journal.html'">Journal</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">Plan Your Activities</div>
+        <div class="weather" id="suggestion-output"></div>
+        <div class="activity-suggestions" id="activity-container"></div> <!-- Unique id for activity container -->
+
+        <div class="footer">Find activities based on current weather!</div>
+    </div>
+
+    <div class="link-section">
+        <a href="equipment.html">Plan Your Equipment</a>
+        <a href="index.html">Go Back Home</a>
+    </div>
+
+    <script src="activity.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan Yours!</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            background: url('picture3.jpg') no-repeat; /* Replace with your image URL */
+            background-size: 200% 100%; /* Adjusts size for movement effect */
+            animation: moveBackground 10s linear infinite;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Moving background image */
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0; /* Start position */
+            }
+
+            100% {
+                background-position: 100% 0; /* End position */
+            }
+        }
+
+        /* Background overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.4);
+            z-index: -1;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background-color: rgba(68, 24, 29, 0.9);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #44181d, #FF6347);
+        }
+
+        .header img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header button {
+            padding: 8px 16px;
+            background-color: white;
+            color: #FF6347;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .header button:hover {
+            background-color: #ffd7d7;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        .activity-box {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            margin: 10px 0;
+            margin-left: 75px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+        }
+
+        .activity-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .activity-header {
+            font-size: 1.5em;
+            color: #e04f58;
+        }
+
+        .equipment-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .equipment-item {
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 65%;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e04f58;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c23a42;
+        }
+
+        .activity-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        #activityInput {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 60%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            z-index: 1;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            color: #e04f58;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo2.png" alt="Logo">
+        <div class="header-buttons">
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='activity.html'">Activity</button>
+            <button onclick="window.location.href='equipment.html'">Equipment</button>
+            <button onclick="window.location.href='journal.html'">Journal</button>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Plan Your Outdoor Activity</h1>
+        <div id="activitiesOutput"></div>
+    </div>
+    <script src="equipment.js"></script>
+</body>
+</html>
